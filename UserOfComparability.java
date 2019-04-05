@@ -13,20 +13,34 @@ public class UserOfComparability {
         reportRelationship( "Point vs. itself", p0, p0, "0");
 
         // // Point vs. its reflection about y = x
-        // reportRelationship( "Point vs. its reflection about y = x"
-                          // , p0, new Point( 4., 3.), "0");
+        reportRelationship( "Point vs. its reflection about y = x"
+                          , p0, new Point( 4., 3.), "0");
 
         // // Point vs. point closer to origin
-        // reportRelationship( "Point vs. point closer to origin", p0
-                          // , new Point( 1., 2.), "positive int");
+        reportRelationship( "Point vs. point closer to origin", p0
+                          , new Point( 1., 2.), "positive int");
 
         // // Point vs. distant point
-        // reportRelationship( "Point vs. distant point", p0
-                          // , new Point( 100., 2.), "negative int");
-        // System.out.println( "---- end of Point comparisons ----");
+        reportRelationship( "Point vs. distant point", p0
+                          , new Point( 100., 2.), "negative int");
+        System.out.println( "---- end of Point comparisons ----");
         
-        // System.out.println( System.lineSeparator()
-                          // + "Date comparisons");
+        System.out.println( System.lineSeparator()
+                          + "Date comparisons");
+		
+		Date d0 = new Date(2019, 04, 05);
+		reportRelationship( "Same date", d0, d0, "0");
+		
+		reportRelationship( "Earlier date", d0, new Date(2010, 03,01), "positive int");
+		
+		reportRelationship( "Later date", d0, new Date(2020, 05,06), "negative int");
+		
+		//Comparing dogs 
+		//reportRelationship( "Comparing dogs", new IncomparableDog(), new IncomparableDog(), "an error");
+		
+		//Comparing point to date
+		//reportRelationship( "Comparing point to date", p0, d0, "an error");
+		
     }
 
 
@@ -35,8 +49,8 @@ public class UserOfComparability {
      */
     private static void reportRelationship 
       ( String description
-      , Point a
-      , Point b
+      , Comparable a
+      , Comparable b
       , String expect
       ) {
         System.out.println( description);
